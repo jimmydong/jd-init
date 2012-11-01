@@ -1,0 +1,9 @@
+[jimmy]
+name=Extra Packages for Enterprise Linux 5 - $basearch
+baseurl=http://monitor.yoka.com:81/pub2/RHEL5/
+failovermethod=priority
+enabled=1
+keepcache=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+

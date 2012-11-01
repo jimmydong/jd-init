@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "Usage: squid_cache.sh 192.168.1.209";
+echo "Warring: MUST use the ip which squid used!";
+if [ "$1" ==  "" ]
+then
+ip=`/sbin/ifconfig eth0 | grep inet | sed -e 's/^.*inet addr:\(.*\) Bcast.*$/\1/'`;
+else
+ip="$1"
+fi
+/opt/itc/squid/bin/squidclient -p 80 -h $ip mgr:info
+

@@ -1,0 +1,95 @@
+#!/usr/local/php/bin/php
+<?php
+/**
+ * 分析服务器server-status
+ * 必要时添加iptables
+ *
+ * Only for Apache! Only for club.sohu!
+ * by jimmy 20071122
+ */
+ini_set("display_errors","On");
+
+$min_threads    = 200;
+$ip_rate        = 0.2;
+$subnet_rate    = 0.3;
+$server_flag    = 1;
+$white_list     = '(^127\.0\.0\.1)|(^192\.168\.)|(^10\.1\.)|(^10.11.)|(^10\.10\.)|(^61\.135\.1)';
+foreach($argv as $server_ip){
+    if(ereg(".*\..*\..*\..*",$server_ip)){
+	if($contents=file_get_contents("http://{$server_ip}/server-status")){
+	    //echo "iptables.php: Object IP is $server_ip \n";
+	    break;
+	}
+    }
+}
+if($contents==''){
+	$cmd='/sbin/ifconfig | grep inet | sed -e \'s/^.*inet addr:\(.*\) Bcast.*$/\1/\'';
+	ob_start();$ifconfig=passthru($cmd);$ifconfig=ob_get_contents();ob_end_clean();
+	if(ereg('(192\.168\.[0-9]+\.[0-9]+)|(10\.10\.[0-9]+\.[0-9]+)|(10\.11\.[0-9]+\.[0-9]+)',$ifconfig,$result)){
+	$server_ip=$result[0];
+        if($contents=file_get_contents("http://{$server_ip}/server-status")){
+            //echo "iptables.php: Object IP is $server_ip \n";
+        }
+	}
+}
+if($contents==''){
+	echo "iptables.php: Can not get server-status!";
+	exit;
+}
+preg_match_all("|<tr><td><b>[0-9]+-[0-9]+</b></td><td>.*?</td><td>.*?</td><td>.*?</td><td>(.*?)</td><td>.*?</td><td>.*?</td><td>.*?</td><td>.*?</td><td>.*?</td><td>(.*?)</td><td nowrap>(.*?)</td><td nowrap>(.*?)</td></tr>|is",$contents,$result);
+if(!is_array($result)){
+    echo "Get server-status failed! Is the server still alive? \n";
+    exit;
+}
+//var_dump($result);
+$cpulist=$result[1];
+$iplist=$result[2];
+$hostlist=$result[3];
+$urllist=$result[4];
+$all_threads=0;
+//var_dump($iplist);
+foreach($iplist as $key=> $ip){
+    if(ereg($white_list,$ip,$result)){
+        //echo "skip internal ip: $ip ({$result[0]})\n";
+        continue;
+    }
+    $tmp=explode('.',$ip);
+    if(count($tmp)!=4){
+        //echo "skip a bad ip: $ip \n";
+        continue;
+    }
+    $all_threads++;
+    $subnet="{$tmp[0]}.{$tmp[1]}.{$tmp[2]}.";
+    $subnet_info[$subnet]++;
+    $ip_info[$ip]++;
+}
+if($all_threads < $min_threads){
+    echo "iptables.php: Apache is not busy. exit. \n";
+    exit;
+}
+//var_dump($subnet_info);
+arsort($ip_info);arsort($subnet_info);
+$conn=mysql_connect('club_fuwu:8703','club','DsWz@sohucluB');
+foreach($ip_info as $ip=> $number){
+    if($number < $all_threads*$ip_rate) break;
+    //add to iptables, report to server, and exit
+    $cmd="/sbin/iptables -A INPUT -i eth1 -p TCP -s {$ip} -j DROP ";
+    if($server_flag==1) $result=`$cmd`;
+    $sql="insert into iptables (filterip,filterdate,remoteAddr) values('$ip',now(),'$server_ip')";
+    $result=mysql_db_query('user',$sql,$conn);
+    echo "$cmd ? ".($server_flag==1)?" Done!\n":" alert only\n";
+    exit;
+}
+foreach($subnet_info as $subnet=> $number){
+    if($number < $all_threads*$subnet_rate) break;
+    //add to iptables, report to server, and exit
+    $cmd="/sbin/iptables -A INPUT -i eth1 -p TCP -s {$subnet}.0/24 -j DROP ";
+    echo "$cmd done!\n";
+    if($server_flag==1) $result=`$cmd`;
+    $sql="insert into iptables (filterip,filterdate,remoteAddr) values('$subnet',now(),'$server_ip')";
+    $result=mysql_db_query('user',$sql,$conn);
+    echo "$cmd ? ".($server_flag==1)?" Done!\n":" alert only\n";
+    exit;
+}
+?>
+iptables.php: Not found any attack. Done!

@@ -1,0 +1,24 @@
+# Name: Operating system and updates
+# for APT
+# location: /etc/apt/
+
+### Red Hat Enterprise Linux
+#repomd http://yam rhel$(VERSION)as-$(ARCH)/os
+#repomd http://yam rhel$(VERSION)as-$(ARCH)/updates
+#repomd http://mirror.centos.org centos/$(VERSION)/apt/os
+#repomd http://mirror.centos.org centos/$(VERSION)/apt/updates
+#rpm http://yam rhel$(VERSION)as-$(ARCH) os updates
+#rpm http://mirror.centos.org centos/$(VERSION)/apt os updates
+#rpm http://afs.caspur.it/ afs/italia/project/linux/cern/slc302/i386/apt os updates extras
+#rpm http://192.168.1.201 pub/os/Linux/RedHat/enterprise/i386/4AS os updates itc
+rpm http://192.168.1.201 pub/os/Linux/RedHat/enterprise/x86_64/5AS os updates itc
+
+### Fedora Core Linux
+#repomd http://ayo.freshrpms.net fedora/linux/$(VERSION)/$(ARCH)/core
+#repomd http://ayo.freshrpms.net fedora/linux/$(VERSION)/$(ARCH)/updates
+#rpm http://ayo.freshrpms.net fedora/linux/$(VERSION)/$(ARCH) core updates
+
+### Red Hat Linux
+#repomd http://ayo.freshrpms.net redhat/$(VERSION)/$(ARCH)/os
+#repomd http://ayo.freshrpms.net redhat/$(VERSION)/$(ARCH)/updates
+#rpm http://ayo.freshrpms.net redhat/$(VERSION)/$(ARCH) os updates

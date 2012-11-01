@@ -1,0 +1,13 @@
+[geekery]
+##########################################################################
+# Readme: http://geekery.altervista.org/dokuwiki/doku.php
+##########################################################################
+name = geekery repository
+baseurl = http://geekery.altervista.org/geekery/el6/$arch
+#mirrorlist = http://geekery.altervista.org/mirrors-geekeryi
+#more info plz see: http://geekery.altervista.org/dokuwiki/doku.php
+
+enabled = 1
+protect = 0
+gpgkey = http://geekery.altervista.org/download.php?filename=GEEKERY-GPG-KEY
+gpgcheck = 1

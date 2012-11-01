@@ -1,0 +1,16 @@
+[local-Server]
+baseurl=file:///mnt/cdrom/Server
+enabled=1
+gpgcheck=0
+[local-HA]
+baseurl=file:///mnt/cdrom/HighAvailability
+enabled=1
+gpgcheck=0
+[local=LB]
+baseurl=file:///mnt/cdrom/LoadBalancer
+enabled=1
+gpgcheck=0
+[local-RS]
+baseurl=file:///mnt/cdrom/ResilientStorage
+enabled=1
+gpgcheck=0
