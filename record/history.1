@@ -1,0 +1,671 @@
+    1  visudo
+    2  vi /etc/sudoers
+    3  sudo -
+    4  exit
+    5  ls
+    6  visudo
+    7  l
+    8  ls
+    9  cd /
+   10  ls
+   11  mkdir YOKA
+   12  cd YOKA
+   13  l
+   14  wget http://www.redbullsports.com.cn:81/SBIN.tar.gz
+   15  ls
+   16  tar -xzvf SBIN.tar.gz
+   17  ls
+   18  mount
+   19  mount /dev/cdrom /mnt/cdrom
+   20  mount /dev/cdrom /mnt/cdrom
+   21  mkdir RHEL6
+   22  mount /dev/cdrom /mnt/cdrom
+   23  mkdir /mnt/cdrom
+   24  mount /dev/cdrom /mnt/cdrom
+   25  cd /mnt/cdrom
+   26  ls
+   27  cp * /YOKA/RHEL6/ -R
+   28  cd /YOKA/
+   29  ls
+   30  cd SBIN
+   31  ls
+   32  ./JD.init_all.sh 
+   33  vi JD.init_all.sh 
+   34  l
+   35  exit
+   36  ls
+   37  l
+   38  pwd
+   39  cd /etc/
+   40  ls
+   41  cd yum.repos.d/
+   42  ls
+   43  vi jimmy.repo 
+   44  yum update
+   45  vi jimmy.repo 
+   46  yum update
+   47  vi jimmy.repo 
+   48  yum update
+   49  yum search http
+   50  ls
+   51  mv geekery.repo geekery.repo.org
+   52  vi rhel-source.repo 
+   53  mv rhel-source.repo rhel-source.repo.org
+   54  l
+   55  yum update
+   56  yum search http
+   57  l
+   58  l
+   59  ls
+   60  ll
+   61  l
+   62  l. /root/
+   63  cp /root/.bash_profile .
+   64  vi .bash_profile 
+   65  cp ifcfg-eth0 ifcfg-eth1
+   66  vi ifcfg-eth1
+   67  mv ifcfg-eth1 ifcfg-eth0:1
+   68  vi ifcfg-eth0:1
+   69  vi ifcfg-eth0
+   70  service network restart
+   71  ifconfig
+   72  reboot
+   73  l
+   74  cd /root
+   75  l
+   76  wget http://mirror.bjtu.edu.cn/apache//httpd/httpd-2.4.3.tar.gz
+   77  tar -xzvf httpd-2.4.3.tar.gz 
+   78  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so
+   79  cd httpd-2.4.3
+   80  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so
+   81  yum search APR
+   82  yum install apr apr-devel apr-util apr-util-devel
+   83  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so
+   84  wget http://mirror.bjtu.edu.cn/apache//apr/apr-1.4.6.tar.gz
+   85  tar -xzvf apr-1.4.6.tar.gz 
+   86  cd apr-1.4.6
+   87  ./configure
+   88  make
+   89  make install
+   90  cd ..
+   91  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so
+   92  wget http://mirror.bjtu.edu.cn/apache//apr/apr-util-1.5.1.tar.gz
+   93  tar -xzvf apr-util-1.5.1.tar.gz 
+   94  cd apr-util-1.5.1
+   95  ./configure
+   96  apr
+   97  whereis apr
+   98  cd ..
+   99  cd /usr/local/apr
+  100  cd /root/
+  101  cd httpd-2.4.3
+  102  cd apr-util-1.5.1
+  103  ./configure --help
+  104  ./configure --with-apr=/usr/local/apr
+  105  make
+  106  cd ..
+  107  ./configure --help | grep apr
+  108  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so --with-apr=/usr/local/apr/
+  109  yum search PCRE
+  110  yum install pcre pcre-devel
+  111  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so --with-apr=/usr/local/apr/
+  112  yum search deflate
+  113  yum install zlib zlib-devel
+  114  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so --with-apr=/usr/local/apr/
+  115  make
+  116  make  > t
+  117  vi t
+  118  make | more
+  119  ./configure --help | grep apr
+  120  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so --with-included-apr
+  121  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so --with-apr=/usr/local/apr/ --with-included-apr
+  122  cd srclib
+  123  cd ..
+  124  mv apr-util-1.5.1 srclib
+  125  mv apr-1.4.6 srclib
+  126  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so --with-included-apr
+  127  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so --with-apr=/usr/local/apr/bin/apr-1-config --with-lib=/usr/local/apr/lib/
+  128  make
+  129  whereis apr-util
+  130  mv srclib/apr* .
+  131  l
+  132  cd apr-util
+  133  cd apr-util-1.5.1
+  134  l
+  135  vi config.log 
+  136  l
+  137  cd ..
+  138  l
+  139  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so --with-included-apr
+  140  cp apr-util-1.5.1 srclib/apr-util -R
+  141  cp apr-1.4.6 srclib/apr -R
+  142  ./configure --prefix=/usr/local/apache-2.4.3/ --enable-deflate --enable-expires --enable-proxy --enable-proxy-connect --enable-proxy-http --enable-proxy-ftp --enable-rewrite --enable-so --with-included-apr
+  143  make
+  144  make install
+  145  cd /usr/loca
+  146  cd /usr/local
+  147  l
+  148  ln -s apache-2.4.3/ apache
+  149  l
+  150  ifconfig
+  151  vi /root/.bash_profile 
+  152  l
+  153  cd /root
+  154  yum search ls
+  155  yum search rz
+  156  yum install lrzsz
+  157  rz -y
+  158  tar -xzvf mysql-5.5.28.tar.gz 
+  159  cd mysql-5.5.28
+  160  vi README 
+  161  vi INSTALL-SOURCE 
+  162  l
+  163  make
+  164  vi INSTALL-SOURCE 
+  165  cd ..
+  166  rm mysql-5.5.28.tar.gz 
+  167  rm mysql-5.5.28/ -Rf
+  168  wget http://downloads.mariadb.org/interstitial/mariadb-5.5.28/kvm-bintar-precise-amd64/mariadb-5.5.28-linux-x86_64.tar.gz/from/http://mirror.yongbok.net/mariadb
+  169  rm mariadb 
+  170  wget http://downloads.mariadb.org/f/mariadb-5.5.28/kvm-bintar-precise-amd64/mariadb-5.5.28-linux-x86_64.tar.gz/from/http:/mirror.yongbok.net/mariadb
+  171  tar -xzvf mariadb-5.5.28-linux-x86_64.tar.gz 
+  172  mv mariadb-5.5.28-linux-x86_64 /usr/local/
+  173  cd /usr/local/mariadb-5.5.28-linux-x86_64/
+  174  cd bin
+  175  cd ..
+  176  cd /YOKA
+  177  cd SBIN
+  178  tar -xzvf mysql_seed.tar.gz 
+  179  mv server0/ mkdir /YOKA/DB
+  180  mkdir /YOKA/DB
+  181  mv server0 /YOKA/DB
+  182  cd /YOKA/DB
+  183  l
+  184  cd ..
+  185  cd LOG
+  186  l
+  187  cd ..
+  188  cd DB
+  189  l
+  190  cd server0
+  191  l
+  192  cd var
+  193  l
+  194  cd phpmyadmin/
+  195  l
+  196  cd ..
+  197  l
+  198  cd ..
+  199  cp server0 server1 -R
+  200  l
+  201  chown mysql.mysql server1 -R
+  202  groupadd mysql
+  203  useradd mysql
+  204  chown mysql.mysql server1
+  205  vi /etc/passwd
+  206  adduser mysql 
+  207  adduser mysql -g mysql
+  208  chown mysql.mysql server1 -R
+  209  l
+  210  chown mysql.mysql server0 -R
+  211  l
+  212  ll
+  213  cd server1
+  214  vi my.cnf
+  215  l
+  216  cd ..
+  217  cd server0
+  218  l
+  219  cd /usr/local/mariadb-5.5.28-linux-x86_64/
+  220  vi INSTALL-BINARY 
+  221  l
+  222  chown mysql.mysql * -R
+  223  cd ..
+  224  ln -s mariadb-5.5.28-linux-x86_64 mysql
+  225  cd mysql
+  226  scripts/mysql_install_db --user=mysql
+  227  yum search glibc
+  228  yun install glibc glibc-devel glibc-common glibc-utils glibc-headers
+  229  yum install glibc glibc-devel glibc-common glibc-utils glibc-headers
+  230  scripts/mysql_install_db --user=mysql
+  231  cat /etc/redhat-release 
+  232  rpm -q glibc
+  233  vi /etc/yum.repos.d/rhel-source.repo.org 
+  234  cd /etc/yum.repos.d/
+  235  mv jimmy.repo jimmy.repo.org
+  236  mv rhel-source.repo.org rhel-source.repo
+  237  cat jimmy.repo.org 
+  238  vi rhel-source.repo 
+  239  yum search glibc
+  240  yum update glibc
+  241  yum update
+  242  l
+  243  mv rhel-source.repo rhel-source.repo.org
+  244  mv jimmy.repo.org jimmy.repo
+  245  cd /root
+  246  wget http://ftp.gnu.org/gnu/glibc/glibc-2.16.0.tar.gz
+  247  tar -xzvf glibc-2.16.0.tar.gz 
+  248  cd glibc-2.16.0
+  249  ./configure --help
+  250  ./configure 
+  251  mkdir /usr/local/glibc
+  252  cd /usr/local/glibc
+  253  /root/glibc-2.16.0/configure 
+  254  /root/glibc-2.16.0/configure --prefix=/usr/local/glibc
+  255  make
+  256  make install
+  257  cd /usr/local/mysql
+  258  l
+  259  vi INSTALL-BINARY 
+  260  scripts/mysql_install_db --user=mysql
+  261  vi scripts/mysql_install_db 
+  262  scripts/mysql_install_db --user=mysql
+  263  cd /usr/local/lib64
+  264  cd ..
+  265  cd lib
+  266  cd ..
+  267  cd local/
+  268  cd glibc/
+  269  ln -s /usr/local/glibc/libc.so.6 /lib64/
+  270  l
+  271  cp libc.so.6 /lib64/
+  272  cd /usr/local/mysql/
+  273  vi INSTALL-BINARY 
+  274  scripts/mysql_install_db --user=mysql
+  275  cat /lib64/libc.so.6 
+  276  h
+  277  yum search apr
+  278  cd /root
+  279  cd httpd-2.4.3
+  280  cd srclib
+  281  l
+  282  cd /root
+  283  tar -xzvf mysql-5.5.28-linux2.6-x86_64.tar.gz 
+  284  mv mysql-5.5.28-linux2.6-x86_64 /usr/local/
+  285  cd /usr/local
+  286  mv mysql mysql-maria
+  287  ln -s mysql-5.5.28-linux2.6-x86_64/ mysql
+  288  l
+  289  db_start.sh server0 -u mysql
+  290  db_start.sh server1 -u mysql
+  291  db_enter.sh server1 -u mysql
+  292  show create table test;
+  293  db_enter.sh server1 -u mysql
+  294  cd /usr/local/mariadb-5.5.28-linux-x86_64/
+  295  cd data
+  296  cd mysql
+  297  l
+  298  cd ..
+  299  l
+  300  vi INSTALL-BINARY 
+  301  l
+  302  chown -R mysql data
+  303  db_stop.sh server0
+  304  db_stop.sh server0 -u mysql
+  305  bin/mysqld_safe --user=mysql &
+  306  cd data
+  307  cd ..
+  308  bin/mysqld_safe --help
+  309  bin/mysqld_safe --user=mysql
+  310  bin/mysqld --help
+  311  bin/mysqld --help --verbose
+  312  bin/mysqld_safe --user=mysql --log-error=./error.log &
+  313  cd bin
+  314  cd ..
+  315  cd data
+  316  cd ..
+  317  l
+  318  cd ..
+  319  chown mysql mariadb-5.5.28-linux-x86_64/ -R
+  320  cd mariadb-5.5.28-linux-x86_64/
+  321  bin/mysqld_safe --user=mysql --log-error=./error.log &
+  322  bin/mysqld_safe --user=mysql --log-error=./error.log --verbose
+  323  vi /var/lib/mysql/./error.log 
+  324  chown mysql /var/run/mysqld
+  325  mkdir /var/run/mysqld
+  326  chown mysql /var/run/mysqld
+  327  bin/mysqld_safe --user=mysql --log-error=./error.log --verbose
+  328  bin/mysqld_safe --user=mysql &
+  329  bin/mysql -u mysql
+  330  l
+  331  bin/mysql -u mysql -h 127.0.0.1 -p 3306
+  332  cd /var/lib/mysql
+  333  l
+  334  cd mysql
+  335  l
+  336  cd ..
+  337  ps | grep maria
+  338  kill 60503
+  339  cd mysql
+  340  l
+  341  pwd
+  342  cd ..
+  343  cd /root
+  344  wget http://cn2.php.net/get/php-5.4.8.tar.gz/from/this/mirror
+  345  tar -xzvf php-5.4.8.tar.gz 
+  346  yun search iconv
+  347  yum search iconv
+  348  yum search libiconv
+  349  wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz
+  350  tar -xzvf libiconv-1.14.tar.gz 
+  351  cd libiconv-1.14
+  352  ./configure
+  353  make
+  354  make install
+  355  cd .
+  356  cd ..
+  357  cd php-5.4.8
+  358  yum search curl
+  359  yum install libcurl-devel
+  360  yum install curl libcurl-devel
+  361  yum install curl libcurl libcurl-devel
+  362  yum search zlib
+  363  yum install zlib zlib-devel
+  364  yum search jpeg
+  365  yum search gd
+  366  yum install gd
+  367  yum install libjpeg libjpeg-devel
+  368  yum search png
+  369  yum install libpng libpng-devel
+  370  yum search freetype
+  371  yum install freetype freetype-devel
+  372  yum search exif
+  373  yum install libexif libexif-devel
+  374  ./configure --prefix=/usr/local/php-5.4.8 --with-iconv --with-mysql=/usr/local/mysql --with-apxs2=/usr/local/apache/bin/apxs --enable-mbstring=cn --with-curl --with-zlib --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --enable-exif --enable-gd-native-ttf --enable-ftp
+  375  yum search xml2
+  376  yum install libxml2 libxml2-devel
+  377  ./configure --prefix=/usr/local/php-5.4.8 --with-iconv --with-mysql=/usr/local/mysql --with-apxs2=/usr/local/apache/bin/apxs --enable-mbstring=cn --with-curl --with-zlib --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --enable-exif --enable-gd-native-ttf --enable-ftp
+  378  l
+  379  make
+  380  whereis libiconv
+  381  ./configure --prefix=/usr/local/php-5.4.8 --with-iconv --with-mysql=/usr/local/mysql --with-apxs2=/usr/local/apache/bin/apxs --enable-mbstring=cn --with-curl --with-zlib --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --enable-exif --enable-gd-native-ttf --enable-ftp --with-iconv=/usr/local/lib
+  382  make 
+  383  ./configure --help | grep phar
+  384  ./configure --help
+  385  ./configure --help > t
+  386  vi t
+  387  ./configure --prefix=/usr/local/php-5.4.8 --with-iconv --with-mysql=/usr/local/mysql --with-apxs2=/usr/local/apache/bin/apxs --enable-mbstring=cn --with-curl --with-zlib --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir --enable-exif --enable-gd-native-ttf --enable-ftp --with-iconv=/usr/local/lib --enable-phar
+  388  make
+  389  make install
+  390  ln -s /usr/local/php-5.4.8/ /usr/local/php
+  391  wget http://pear.php.net/go-pear.phar
+  392  /usr/local/php/bin/php go-pear.phar 
+  393  l
+  394  cd /usr/local/php/lib
+  395  rz -y
+  396  vi php.ini 
+  397  pecl
+  398  vi php.ini 
+  399  pecl --help
+  400  pecl
+  401  pecl install xdebug
+  402  cd /usr/local/php
+  403  cd bin
+  404  pecl install xdebug
+  405  ./phpize
+  406  cd /root
+  407  cd php-5.4.8
+  408  vi config.log 
+  409  l
+  410  cd /usr/local/php
+  411  whereis phpize
+  412  peal
+  413  pear
+  414  vi lib/php.ini 
+  415  pear
+  416  cd lib
+  417  vi php.ini 
+  418  pear
+  419  pear install xdebug
+  420  pecl install xdebug
+  421  pecl
+  422  cd ..
+  423  cd bin
+  424  whereis pecl
+  425  ./pecl install xdebug
+  426  pear config-show
+  427  pecl
+  428  pcel config-show
+  429  pecl config-show
+  430  pecl config-set php_ini=/usr/local/php/lib/php.ini 
+  431  pecl config-show
+  432  ./pecl config-show
+  433  ./pecl config-set php_ini=/usr/local/php/lib/php.ini 
+  434  ./pecl config-show
+  435  ./pecl config-set php_ini /usr/local/php/lib/php.ini 
+  436  ./pecl config-show
+  437  ./pecl install xdebug
+  438  whereis pecl
+  439  l /bin/pecl
+  440  ln -s ./phpize /bin/phpize
+  441  ./pecl install xdebug
+  442  rpm -q php
+  443  rpm -q pear
+  444  rpm -q pecl
+  445  yum search php
+  446  rm /bin/phpize 
+  447  l
+  448  ./pecl --help
+  449  ./pecl help
+  450  ./pecl help options
+  451  ./pecl install xdebug -v -c ../lib/php.ini 
+  452  ./phpize
+  453  vi /root/.bash_profile 
+  454  PATH=$PATH:/usr/local/php/bin;export PATH
+  455  ./pecl install xdebug -v -c ../lib/php.ini 
+  456  ./pecl install xdebug -v
+  457  vi ../lib/php.ini 
+  458  phpize
+  459  pear
+  460  ./php
+  461  vi ../lib/php.ini 
+  462  ./php
+  463  ./pecl config-show
+  464  ./pecl install memcache
+  465  vi ../lib/php.ini 
+  466  ./pecl install pdo
+  467  vi ../lib/php.ini 
+  468  ./pecl install tidy
+  469  ./pear 
+  470  ./pear config-show
+  471  ./pear config-set php_ini /usr/local/php/lib/php.ini
+  472  ./pear install tidy
+  473  cd /root/php-5.4.8
+  474  cd ext
+  475  cd tidy/
+  476  /usr/local/php/bin/phpize 
+  477  ./configure --help
+  478  ./configure --php-config=/usr/local/php/bin/php-config 
+  479  ./configure --with-php-config=/usr/local/php/bin/php-config 
+  480  yum install libtidy
+  481  yum install libtidy-devel
+  482  ./configure --with-php-config=/usr/local/php/bin/php-config 
+  483  ./configure --help
+  484  whereis libtidy
+  485  l /usr/local/lib/tidy*
+  486  l /usr/local/lib/libtidy*
+  487  l /usr/local/lib/
+  488  l /usr/lib/
+  489  l /lib/
+  490  yum install tidy
+  491  make 
+  492  ./configure --with-php-config=/usr/local/php/bin/php-config 
+  493  yum install libtidy
+  494  whereis libtidy
+  495  cd /
+  496  cd lib64
+  497  l
+  498  cd ..
+  499  cd lib
+  500  l
+  501  cd ..
+  502  cd /usr/lib64
+  503  l
+  504  cd /root/php-5.4.8/ext/tidy/
+  505  ./configure --help
+  506  ./configure --with-php-config=/usr/local/php/bin/php-config  --with-libdir=/usr/lib64
+  507  l /usr/lib64/libti*
+  508  l
+  509  whereis tidy
+  510  ./configure --with-php-config=/usr/local/php/bin/php-config  --with-tidy=/usr/bin/tidy
+  511  yum install libtidy-devel
+  512  ./configure --with-php-config=/usr/local/php/bin/php-config  --with-tidy=/usr
+  513  yum search libtidy
+  514  ln -s /usr/lib64/libtidy-0.99.so.0 /usr/lib64/libtidy.so
+  515  ./configure --with-php-config=/usr/local/php/bin/php-config  --with-tidy=/usr
+  516  ./configure --with-php-config=/usr/local/php/bin/php-config
+  517  yum search re2c
+  518  vi /usr/local/php/lib/php.ini 
+  519  /usr/local/php/bin/pecl install mongo
+  520  vi /usr/local/php/lib/php.ini 
+  521  pecl mcrypt
+  522  pecl  install mcrypt
+  523  pear install mcrypt
+  524  pecl install mcrypt
+  525  vi /usr/local/php/lib/php.ini 
+  526  pecl install ampq
+  527  pecl install amqp
+  528  yum search rabbit
+  529  yum search librabbit-mq
+  530  cd ..
+  531  cd mcrypt/
+  532  /usr/local/php/bin/phpize 
+  533  ./configure --with-php-config=/usr/local/php/bin/php-config
+  534  yum install libmcrypt
+  535  yum search mcrypt
+  536  cd ..
+  537  cd. .
+  538  cd ..
+  539  wget http://www.rabbitmq.com/releases/rabbitmq-server/v2.8.7/rabbitmq-server-generic-unix-2.8.7.tar.gz
+  540  tar -xzvf rabbitmq-server-generic-unix-2.8.7.tar.gz 
+  541  mv rabbitmq_server-2.8.7/ /usr/local/
+  542  ln -s /usr/local/rabbitmq_server-2.8.7/ /usr/local/rabbit
+  543  pecl install ampq
+  544  vi /usr/local/php/lib/php.ini 
+  545  pecl install amqp
+  546  pecl
+  547  pecl download amqp
+  548  mv amqp-1.0.7.tgz  php-5.4.8/ext/
+  549  cd php-5.4.8/ext
+  550  tar -xzvf amqp-1.0.7.tgz 
+  551  cd amqp-1.0.7
+  552  /usr/local/php/bin/phpize
+  553  ./configure --help
+  554  ./configure --with-php-config=/usr/local/php/bin/php-config --with-librabbitmq-dir=/usr/local/rabbit/
+  555  cd ..
+  556  wget http://www.rabbitmq.com/releases/rabbitmq-server/v2.8.7/rabbitmq-server-2.8.7.tar.gz
+  557  tar -xzvf rabbitmq-server-generic-unix-2.8.7.tar.gz 
+  558  cd rabbitmq_server-2.8.7/
+  559  vi INSTALL
+  560  l
+  561  cd sbin
+  562  l
+  563  cd ..
+  564  l
+  565  cd .
+  566  cd ..
+  567  rm rabbitmq-server-2.8.7
+  568  rm rabbitmq-server-2.8.7 -Rf
+  569  l
+  570  rm rabbitmq-server-generic-unix-2.8.7.tar.gz 
+  571  l
+  572  cd php-5.4.8
+  573  cd ..
+  574  wget http://hg.rabbitmq.com/rabbitmq-c/rev/b01825ecc112
+  575  rm b01825ecc112 
+  576  wget http://hg.rabbitmq.com/rabbitmq-c/archive/b01825ecc112.tar.gz
+  577  tar -xzvf b01825ecc112.tar.gz 
+  578  cd rabbitmq-c-b01825ecc112/
+  579  wget http://hg.rabbitmq.com/rabbitmq-codegen/archive/tip.tar.gz
+  580  rm tip.tar.gz 
+  581  wget http://hg.rabbitmq.com/rabbitmq-codegen/archive/db13342f2443.tar.gz
+  582  tar -xzvf db13342f2443.tar.gz 
+  583  mv rabbitmq-codegen-db13342f2443/ codegen
+  584  l
+  585  autoreconf -i && ./configure && make && sudo make install
+  586  cd ..
+  587  wget http://hg.rabbitmq.com/rabbitmq-c/archive/ce1eaceaee94.tar.gz
+  588  tar -xzvf ce1eaceaee94.tar.gz 
+  589  mv rabbitmq-c-b01825ecc112/codegen/ rabbitmq-c-ce1eaceaee94/
+  590  rm rabbitmq-c-b01825ecc112 -Rf
+  591  cd rabbitmq-c-ce1eaceaee94/
+  592  l
+  593  autoreconf -i && ./configure && make && sudo make install
+  594  cd ..
+  595  rm rabbitmq-c-ce1eaceaee94/ -Rf
+  596  hg
+  597  yum search hg
+  598  yum install libssh2
+  599  yum search python
+  600  yum install python python-devel
+  601  pythyum install python-setuptools
+  602  yum install python-setuptools
+  603  easy_install simplejson
+  604  yum install mercurial
+  605  ldconfig
+  606  hg
+  607  hg clone http://hg.rabbitmq.com/rabbitmq-codegen/
+  608  hg clone http://hg.rabbitmq.com/rabbitmq-c/
+  609  cd rabbitmq-c
+  610  autoreconf -i 
+  611  cd ..
+  612  cd rabbitmq-c
+  613  l
+  614  vi README.md 
+  615  yum search git
+  616  yum install git
+  617  git 
+  618  git clone https://github.com/alanxz/rabbitmq-c
+  619  l
+  620  cd ..
+  621  rm rabbitmq-c -Rf
+  622  cd rabbitmq-codegen/
+  623  l
+  624  cd ..
+  625  git clone https://github.com/alanxz/rabbitmq-c
+  626  cd rabbitmq-c
+  627  vi README.md 
+  628  autoreconf -i
+  629  l
+  630  ./configure
+  631  vi README.md 
+  632  mv ../rabbitmq-codegen/ ./codegen
+  633  l
+  634  reconfig -i
+  635  autoreconf -i
+  636  git submodule init
+  637  rm -Rf codegen 
+  638  git submodule init
+  639  git submodule update
+  640  autoreconf -i
+  641  ./configure 
+  642  vi README.md
+  643  cd ..
+  644  rm rabbitmq-c -Rf
+  645      git clone git://github.com/alanxz/rabbitmq-c.git
+  646      cd rabbitmq-c
+  647      git submodule init
+  648      git submodule update
+  649  autoreconf -i
+  650  yum search aclocal 
+  651  aclocal
+  652  whereis aclocal
+  653  l /usr/share/aclocal
+  654  l /usr/share/ac*
+  655  mv /usr/share/aclocal/* /usr/share/aclocal-1.11/
+  656  rmdir /usr/share/aclocal
+  657  ln -s /usr/share/aclocal-1.11/ /usr/share/aclocal
+  658  autoreconf  -i
+  659  vi configure.ac
+  660  aclocal
+  661  autoreconf -i
+  662  vi configure.ac
+  663  yum search libtools
+  664  yum search libtool
+  665  yum install libtool
+  666  autoreconf -i
+  667  ./configure
+  668  make
+  669  make install
+  670  cd ..
+  671  h > history
