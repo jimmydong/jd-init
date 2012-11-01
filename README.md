@@ -7,4 +7,5 @@
 #  run: ./JD_init.sh
 #
 
-haha
+Welcome to my blog: http://hi.baidu.com/new/cnjimmydong
+
