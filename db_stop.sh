@@ -12,7 +12,7 @@ fi
 
 echo -e "stop mysql at $rundir"
 if [ $# -lt 2 ]; then
-/usr/local/mysql/bin/mysqladmin shutdown --socket="$rundir"/mysql.sock -u yoka2312 -p`cat /home/mysql/mysql.security.ini`
+/usr/local/mysql/bin/mysqladmin shutdown --socket="$rundir"/mysql.sock -u jimmy -p`cat /home/mysql/mysql.security.ini`
 else
 /usr/local/mysql/bin/mysqladmin shutdown --socket="$rundir"/mysql.sock $2 $3 $4
 fi
