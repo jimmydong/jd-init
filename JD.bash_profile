@@ -11,7 +11,8 @@ fi
 
 PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/YOKA/SBIN
 ip=`/sbin/ifconfig eth0 | grep Bcast | sed -e 's/^.* addr:\(.*\) Bcast.*$/\1/'`
-if [ $ip ];then PS1="\[\e[32;1m\]$ip\[\e[0m\][\W]\$ "
+#if [ $ip ];then PS1="\[\e[32;1m\]$ip\[\e[0m\][\W]\$ "
+if [ $ip ];then PS1="\[\e[32;1m\]\h\[\e[0m\][\W]\$ "
 else PS1="\[\e[32;1m\]`/sbin/ifconfig eth1 | grep Bcast | sed -e 's/^.* addr:\(.*\) Bcast.*$/\1/'`\[\e[0m\][\W]\$ "
 fi
 export PATH
