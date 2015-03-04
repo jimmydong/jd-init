@@ -19,7 +19,7 @@ export PATH
 export PS1
 export HISTIGNORE="&:history:ls:ls *:ps:ps -A:df:df *:du:du *:[bf]g:exit"
 unset USERNAME
-cd /YOKA;echo "[LOAD]";cat /proc/loadavg;echo "[DISK]";df -h;echo "[WORK]";ll -h;
+cd /WORK;echo "[LOAD]";cat /proc/loadavg;echo "[DISK]";df -h;echo "[WORK]";ll -h;
 if [ -e important_log ]
 then
 echo
