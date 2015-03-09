@@ -6,8 +6,8 @@
 # createtime 2008-04-14   #
 # updatetime 	          #
 ###########################
-log=/YOKA/important_log
-start=/YOKA/Memcached/memagent_start.sh
+log=/WORK/important_log
+start=/WORK/Memcached/memagent_start.sh
 date=`date`
 cat $start | while read magentinfo
 do

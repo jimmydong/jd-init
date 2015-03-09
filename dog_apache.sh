@@ -43,8 +43,8 @@ errflag=1
 fi
 
 if [ "$errflag" = "1" ] ; then
-    date >> /YOKA/important_log
-    echo "too many httpd or too high load: httpd-$HTTP , load-$LOAD" >> /YOKA/important_log
+    date >> /WORK/important_log
+    echo "too many httpd or too high load: httpd-$HTTP , load-$LOAD" >> /WORK/important_log
     $runcmd stop
     until `kill -CHLD $pid >/dev/null 2>&1`  ; do
         sleep $sleeptime
@@ -52,6 +52,6 @@ if [ "$errflag" = "1" ] ; then
         sleep 1
         pid=`cat /usr/local/apache/logs/httpd.pid`
     done
-    /usr/local/php/bin/php -f /YOKA/SBIN/iptables.php >> /YOKA/important_log
+    /usr/local/php/bin/php -f /WORK/SBIN/iptables.php >> /WORK/important_log
 fi
 

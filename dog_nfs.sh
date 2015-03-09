@@ -9,8 +9,8 @@
 ###########################
 
 nfsList=$(cat /etc/fstab | grep nfs $3  | awk '{ print $1}' |grep -v '^\s*#')
-log=/YOKA/important_log
-tmpfile=/YOKA/tmp_mount_nfs
+log=/WORK/important_log
+tmpfile=/WORK/tmp_mount_nfs
 nfsNumber=0
 for remote in $nfsList
 do

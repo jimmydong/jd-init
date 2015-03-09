@@ -6,8 +6,8 @@
 # createtime 2008-07-04   #
 # updatetime 	          #
 ###########################
-log=/YOKA/important_log
-start=/YOKA/Memcached/memcached_start.sh
+log=/WORK/important_log
+start=/WORK/Memcached/memcached_start.sh
 date=`date`
 cat $start | while read meminfo
 do

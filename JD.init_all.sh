@@ -22,8 +22,8 @@ cp JD.tsocks.conf /etc/tsocks.conf
 cp JD.sources.list /etc/apt/sources.list
 rm /etc/apt/sources.list.d/* -f
 cat /etc/tsocks.conf
-cp JD.jimmy.repo /etc/yum.repos.d/jimmy.repo
-cp JD.geekery.repo /etc/yum.repos.d/geekery.repo
+cp JD.jimmy.repo /etc/yum.repos.d/jimmy.repo.org
+cp JD.geekery.repo /etc/yum.repos.d/geekery.repo.org
 
 mv /bin/vi /bin/vi.org
 ln /usr/bin/vim /bin/vi
@@ -33,10 +33,10 @@ useradd www
 groupadd mysql
 useradd mysql
 
-mkdir /YOKA/HTML
-mkdir /YOKA/LOG
-mkdir /YOKA/LOG/apachelogs
-mkdir /YOKA/LOG/phplogs
+mkdir /WORK/HTML
+mkdir /WORK/LOG
+mkdir /WORK/LOG/apachelogs
+mkdir /WORK/LOG/phplogs
 cp JD.security /home/mysql/mysql.security.ini
 
 echo "Remember:"

@@ -9,7 +9,7 @@ DIRNAME=`dirname "$1"`
 FILENAME=`basename "$1"`
 
 if [ "$#" -ne "1" ]; then
-        echo -e "Usage: /YOKA/SBIN/rm_attch.sh /dir1/../dirn/remote_file\neg: /YOKA/SBIN/rm_attch.sh /bbs/attachments/1/1.png"
+        echo -e "Usage: /WORK/SBIN/rm_attch.sh /dir1/../dirn/remote_file\neg: /WORK/SBIN/rm_attch.sh /bbs/attachments/1/1.png"
         exit 1
 fi
 

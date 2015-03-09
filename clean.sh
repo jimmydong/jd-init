@@ -1,7 +1,7 @@
 #!/bin/sh
-important_logs="/YOKA/important_log"
-apache_error_logs="/YOKA/LOGS/apachelog/logs/error_log"
-php_error_logs="/YOKA/LOGS/phplog/php_error.log"
+important_logs="/WORK/important_log"
+apache_error_logs="/WORK/LOGS/apachelog/logs/error_log"
+php_error_logs="/WORK/LOGS/phplog/php_error.log"
 
 echo "Clean important_logs: ... Done!";
 echo '' > $important_logs

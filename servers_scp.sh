@@ -2,7 +2,7 @@
 server_list=('10.0.1.52' '10.0.1.53' '10.0.1.54')
 
 if [ "$2" == "" ]; then
-echo -e "Usage: server_scp.sh '[source]' '[dest]' [other]\neg:  server_scp.sh /YOKA/SBIN /YOKA/SBIN \n\nExit"
+echo -e "Usage: server_scp.sh '[source]' '[dest]' [other]\neg:  server_scp.sh /WORK/SBIN /WORK/SBIN \n\nExit"
 exit
 fi
 

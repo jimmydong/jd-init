@@ -4,7 +4,7 @@ remotename=`basename "$2"`
 HOSTNAME=`hostname`
 
 if [ "$#" -ne "2" -o "$localname" = "$remotename" -o -d "$1" ]; then
-        echo -e "Usage: /YOKA/SBIN/ftp.sh /dir1/../dirn/local_file /remote_directory/\neg: /YOKA/SBIN/ftp.sh /var/www/bbs/bbs.yoka.c
+        echo -e "Usage: /WORK/SBIN/ftp.sh /dir1/../dirn/local_file /remote_directory/\neg: /WORK/SBIN/ftp.sh /var/www/bbs/bbs.yoka.c
 om/upload/1.png /bbs/attachments/1/"
         exit 1
 fi

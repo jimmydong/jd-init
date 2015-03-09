@@ -1,7 +1,7 @@
 #!/bin/sh
 # Show squid status
 # by jimmydong 20070927
-runcmd="/YOKA/SBIN/squidclient"
+runcmd="/WORK/SBIN/squidclient"
 
 if [ "$1" == "" ]
 then
