@@ -1,7 +1,6 @@
 #!/bin/sh
 ######################################
 # System Watch Dog
-# for club.sohu only
 # check system important service
 # !!! suppose to be run every 5 minutes !!!
 # by jimmy 20071023
@@ -32,15 +31,15 @@ if [ $number == 0 ];then
     echo "snmp still going"
   else
     /etc/rc.d/init.d/snmpd start
-    date >> /SOHU/important_log
-    echo "snmpd stoped, reload snmpd." >> /SOHU/important_log
+    date >> /YOKA/important_log
+    echo "snmpd stoped, reload snmpd." >> /YOKA/important_log
   fi
   if [ -n "`/bin/ps -e | grep sshd`" ]; then
     echo "sshd still going"
   else
     /usr/local/sbin/sshd
-    date >> /SOHU/important_log
-    echo "sshd stoped, reload sshd." >> /SOHU/important_log
+    date >> /WORK/important_log
+    echo "sshd stoped, reload sshd." >> /WORK/important_log
   fi
 
 fi
@@ -69,11 +68,11 @@ fi
 number=$RANDOM
 let "number %= $perweek"
 if [ $number == 0 ];then
-  log_path="/SOHU/important_log"
+  log_path="/WORK/important_log"
   tail -n 20 $log_path > /tmp/error_log.tmp
   cat /tmp/error_log.tmp > $log_path
 
-  log_path="/SOHU/LOG/apachelogs"
+  log_path="/WORK/LOG/apachelogs"
   for file in `ls $log_path | grep error_log`
   do
     if [ -f $log_path/$file ]; then
@@ -81,7 +80,7 @@ if [ $number == 0 ];then
       cat /tmp/error_log.tmp > $log_path/$file
     fi
   done
-  log_path="/SOHU/LOG/phplogs"
+  log_path="/WORK/LOG/phplogs"
   for file in `ls $log_path | grep error_log`
   do
     if [ -f $log_path/$file ]; then

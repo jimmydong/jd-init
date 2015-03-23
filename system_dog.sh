@@ -14,10 +14,10 @@ errflag=1
 fi
 if [ "$errflag" = "1" ]
 then
-date >> /SOHU/important_log
-echo "too many httpd or too high load: httpd-$HTTP , load-$LOAD" >> /SOHU/important_log
-/sbin/ifconfig | awk '/inet/{print $2}' | awk -F: '{print $2}' | xargs /usr/local/php/bin/php -f /SOHU/community/club/html/more/insertServerStatus.php  
-/sbin/ifconfig | awk '/inet/{print $2}' | awk -F: '{print $2}' | xargs /usr/local/php/bin/php -f /SOHU/community/club/html/more/analyseServerStatus.php 
+date >> /WORK/important_log
+echo "too many httpd or too high load: httpd-$HTTP , load-$LOAD" >> /WORK/important_log
+/sbin/ifconfig | awk '/inet/{print $2}' | awk -F: '{print $2}' | xargs /usr/local/php/bin/php -f /WORK/community/club/html/more/insertServerStatus.php  
+/sbin/ifconfig | awk '/inet/{print $2}' | awk -F: '{print $2}' | xargs /usr/local/php/bin/php -f /WORK/community/club/html/more/analyseServerStatus.php 
 /usr/local/apache/bin/apachectl stop
 sleep 15
 /usr/local/apache/bin/apachectl restart

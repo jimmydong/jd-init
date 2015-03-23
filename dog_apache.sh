@@ -32,26 +32,37 @@ else
   echo "Could not find pid file. Maybe apache has gone. Start it.";
   $runcmd start
 fi
-#check if load too high or thread too much
-LOAD=`cat /proc/loadavg | awk '{print \$1}' | awk -F. '{print \$1}'`
-if [ $LOAD -ge 60 ] ; then
-errflag=1
-fi
-HTTP=`/bin/ps -ef | grep httpd -c`
-if [ $HTTP -ge 1000 ] ; then
-errflag=1
-fi
 
-if [ "$errflag" = "1" ] ; then
-    date >> /WORK/important_log
-    echo "too many httpd or too high load: httpd-$HTTP , load-$LOAD" >> /WORK/important_log
-    $runcmd stop
-    until `kill -CHLD $pid >/dev/null 2>&1`  ; do
-        sleep $sleeptime
-        $runcmd start
-        sleep 1
-        pid=`cat /usr/local/apache/logs/httpd.pid`
-    done
-    /usr/local/php/bin/php -f /WORK/SBIN/iptables.php >> /WORK/important_log
-fi
+##
+## Check if system load too high
+##
+
+errflag=0                                                                                                                                                                           
+                                                                                                                                                                                    
+LOAD=`cat /proc/loadavg | awk '{print \$1}' | awk -F. '{print \$1}'`                                                                                                                
+if [ $LOAD -ge 10 ]                                                                                                                                                                 
+then                                                                                                                                                                                
+errflag=1                                                                                                                                                                           
+fi                                                                                                                                                                                  
+                                                                                                                                                                                    
+HTTP=`/bin/ps -ef | grep httpd -c`                                                                                                                                                  
+if [ $HTTP -ge 200 ]                                                                                                                                                                
+then                                                                                                                                                                                
+errflag=1                                                                                                                                                                           
+fi                                                                                                                                                                                  
+                                                                                                                                                                                    
+if [ "$errflag" = "1" ]                                                                                                                                                             
+then                                                                                                                                                                                
+date >> /WORK/important_log
+echo "too many httpd or too high load: httpd-$HTTP , load-$LOAD" >> /WORK/important_log                                                                                             
+#/WORK/send_sms.php --msg="too many httpd or too high load: httpd-$HTTP , load-$LOAD"                                                                                                
+                                                                                                                                                                                    
+/bin/ps -ef > /WORK/LOG/important_log.`date`
+#/usr/local/php/bin/php -f /WORK/SBIN/iplist.php >> /WORK/important_log
+/usr/local/apache/bin/apachectl stop                                                                                                                                                
+sleep $sleeptime
+/usr/local/apache/bin/apachectl restart                                                                                                                                             
+fi                                                                                                                                                                                  
+#/bin/ps -ef > /WORK/LOG/important_log.`date`   
+
 
