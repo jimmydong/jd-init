@@ -1,0 +1,18 @@
+@install
+yum install pam pam-devel
+
+@config
+vi /etc/sysconfig/ss5
+allow : SS5_OPTS=" -u root"
+
+@user
+vi /etc/opt/ss5/ss5.conf
+somename passwd
+
+@bind port
+vi /etc/rc.d/init.d/ss5
+change to :  -m -b 0.0.0.0:11080
+chmod +x /etc/rc.d/init.d/ss5
+
+
+Done!
