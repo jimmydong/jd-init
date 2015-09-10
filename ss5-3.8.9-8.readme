@@ -1,12 +1,17 @@
 @install
 yum install pam pam-devel
 
-@config
+@system
 vi /etc/sysconfig/ss5
 allow : SS5_OPTS=" -u root"
 
-@user
+@config
 vi /etc/opt/ss5/ss5.conf
+allow  auth - - - - u
+allow  permit 
+
+@user
+vi /etc/opt/ss5/ss5.passwd
 somename passwd
 
 @bind port
