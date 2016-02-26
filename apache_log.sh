@@ -5,10 +5,11 @@ else
 log="$1"
 fi
 
-if [ "$2" == ""]; then
+if [ "$2" == "" ]; then
 date=".`date +%Y%m%d`"
 else
 date=""
 fi 
 
-goaccess -f /WORK/LOG/apache_logs/access_log.$log$date --no-color --no-progress
+log_file="/WORK/LOG/apache_logs/access_log.$log$date"
+goaccess -f $log_file --no-color --no-progress
