@@ -1,7 +1,7 @@
 #/bin/sh
 log=/WORK/important_log
 date=`date`
-times=`/bin/ps aux | grep mongo | awk '{print $11}' | grep -v "grep"`
+times=`/bin/ps -aux | grep mongod | awk '{print $11}' | grep -v "grep"`
 echo "Check Result: $times"
 if [ -z $times ]
 then
