@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 log=/WORK/important_log
 date=`date`
 times=`/bin/ps -aux | grep mongod | awk '{print $11}' | grep -v "grep"`
