@@ -1,0 +1,7 @@
+
+# Inode
+df -i
+for i in /var/spool/*; do echo $i; find $i | wc -l; done
+
+# Apache : No space left on device: AH00023
+for i in `ipcs -s | awk '/www/ {print $2}'`; do (ipcrm -s $i); done

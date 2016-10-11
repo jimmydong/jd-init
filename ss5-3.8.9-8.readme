@@ -3,6 +3,7 @@ yum -y install pam-devel openldap-devel cyrus-sasl-devel openssl-devel
 @install
 yum install pam pam-devel
 yum install openldap openldap-devel
+yum install openssl openssl-devel
 ./configure
 make && make install
 
