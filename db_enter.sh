@@ -1,5 +1,5 @@
 #!/bin/sh
-# php2.7 install mycli
+# pip2.7 install mycli
 
 #By jimmydong 20071108
 if [ "$1" == "" ]; then
