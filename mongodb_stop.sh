@@ -1,18 +1,23 @@
 #!/bin/sh
+
+#pkill mongod
+
 if [ "$1" == "" ]; then
-echo -e "Usage: mongodb_stop.sh DBNAME [OTHER...]\neg:  mongodb_stop.sh server1 \n"
-echo -e "!!!Important: DBNAME must be placed in /WORK/MONGODB!!!\n\n"
-exit
-fi
-rundir="/WORK/MONGODB/$1";
-if [ ! -d $rundir ];then
-echo -e "Error: Can not find the directory /WORK/MONGODB/$1 \n"
-exit
-fi
-
-echo -e "stop mongodb at $rundir"
-if [ $# -lt 2 ]; then
-
+rundir="/WORK/MONGO/"
 else
+rundir="/WORK/MONGO/$1"
 fi
+echo -e "Asert mongodb.conf is $rundir/mongodb.conf\n\n"
+if [ ! -d $rundir ];then
+echo -e "Error: Can not find the directory $rundir \n"
+exit
+fi
+echo "Stop MongoDB at $rundir ..."
+/usr/local/mongodb/bin/mongod --shutdown -f "$rundir"/mongodb.conf &
+echo "/usr/local/mongodb/bin/mongod --shutdown -f $rundir/mongodb.conf &"
+
+
+#echo -e "It will stop mongodb at $rundir , Please input password:"
+#read -s password
+#mongo admin /WORK/SBIN/mongodb_shutdown.js
 
