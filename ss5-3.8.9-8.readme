@@ -13,8 +13,8 @@ allow : SS5_OPTS=" -u root"
 
 @config
 vi /etc/opt/ss5/ss5.conf
-allow  auth - - - - u
-allow  permit 
+allow :  auth
+allow :  permit 
 
 @user
 vi /etc/opt/ss5/ss5.passwd
