@@ -1,0 +1,3 @@
+#!/bin/sh
+echo run gost server on port 443 ...
+/WORK/SBIN/gost -L=http2://:443
